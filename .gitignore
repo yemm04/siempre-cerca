@@ -1,0 +1,13 @@
+# Dependencias y compilados
+node_modules/
+dist/
+# Secretos (nunca subir)
+.env
+.env.*
+!.env.example
+# Sistema y editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+*.log

@@ -1,0 +1,225 @@
+/**
+ * create-case.css - Crear alerta (4 pasos) y pantalla de revisión
+ */
+/* Crear Alerta */
+.create-screen {
+  padding-bottom: 90px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.simple-header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 18px;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(232, 223, 210, 0.7);
+  font-weight: 700;
+}
+
+.simple-header .back {
+  width: 70px;
+}
+
+.simple-header > button:last-child {
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 12px;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  color: var(--green);
+}
+
+.create-content {
+  padding: 25px 24px 100px;
+}
+
+.create-content h1 {
+  margin: 7px 0 9px;
+}
+
+.create-content > .subtitle {
+  margin-bottom: 24px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.category-grid button {
+  min-height: 208px;
+  border: 2px solid transparent;
+  background: var(--white);
+  border-radius: 21px;
+  padding: 19px 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 6px 22px rgba(61, 58, 54, 0.06);
+}
+
+.category-grid button.selected {
+  border-color: var(--green);
+  background: rgba(163, 177, 138, 0.1);
+}
+
+.category-grid b { font-size: 15px; line-height: 1.3; }
+.category-grid small { font-size: 10px; color: var(--muted); line-height: 1.4; }
+.category-grid i {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 21px;
+  height: 21px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+}
+
+.category-grid .selected i { display: grid; }
+
+.category-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 26px 30px 24px 35px;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  background: rgba(212, 163, 115, 0.2);
+  color: var(--ochre);
+}
+
+.category-icon.pet {
+  background: rgba(163, 177, 138, 0.2);
+  color: var(--green);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.upload-box {
+  width: 100%;
+  min-height: 180px;
+  border: 1.5px dashed var(--sage);
+  border-radius: 20px;
+  background: rgba(163, 177, 138, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-box div {
+  width: 52px;
+  height: 52px;
+  border-radius: 17px;
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  background: rgba(163, 177, 138, 0.24);
+}
+
+.upload-box span { color: var(--muted); font-size: 11px; }
+.upload-box small { color: var(--green); font-weight: 700; margin-top: 6px; }
+
+.create-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 13px 24px 20px;
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  z-index: 10;
+}
+
+.location-map {
+  height: 230px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.location-map .big-pin {
+  position: absolute;
+  left: calc(50% - 23px);
+  top: 75px;
+  width: 46px;
+  height: 46px;
+  background: var(--coral);
+  color: var(--white);
+  border-radius: 50% 50% 50% 12px;
+  transform: rotate(-45deg);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.big-pin svg { transform: rotate(45deg); }
+
+.location-map > button {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  border-radius: 18px;
+  padding: 9px 13px;
+  background: var(--white);
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 5;
+}
+
+.police-note {
+  background: rgba(212, 163, 115, 0.15);
+  border-radius: 17px;
+  padding: 15px;
+  display: flex;
+  gap: 11px;
+  margin: 18px 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.police-note > div {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(212, 163, 115, 0.25);
+  color: var(--ochre);
+}
+
+.police-note span { color: var(--muted); }
+.police-note b { display: block; color: var(--ink); }
+.police-note strong { color: var(--coral); }

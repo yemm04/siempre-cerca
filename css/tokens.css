@@ -1,0 +1,23 @@
+/**
+ * tokens.css - Variables de diseño del sistema Siempre Cerca
+ * Colores, tipografía, sombras y radios extraídos del prototipo.
+ */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:ital,wght@1,500;1,600&display=swap");
+
+:root {
+  --cream: #f9f7f3;
+  --green: #588157;
+  --coral: #c96c63;
+  --sage: #a3b18a;
+  --beige: #e8dfd2;
+  --ochre: #d4a373;
+  --white: #ffffff;
+  --ink: #3d3a36;
+  --muted: color-mix(in srgb, var(--ink) 68%, var(--cream));
+  --line: color-mix(in srgb, var(--beige) 72%, var(--white));
+  --shadow: 0 12px 38px rgba(61, 58, 54, 0.1);
+  font-family: "DM Sans", sans-serif;
+  color: var(--ink);
+  background: var(--beige);
+  font-synthesis: none;
+}

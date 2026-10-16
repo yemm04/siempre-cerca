@@ -1,0 +1,140 @@
+/**
+ * base.css - Estilos base, reset y tipografía
+ * Contiene el reset general, escala tipográfica y contenedores principales.
+ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--beige);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(88, 129, 87, 0.25);
+  outline-offset: 2px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: radial-gradient(circle at 18% 30%, rgba(163, 177, 138, 0.28), transparent 28%),
+              radial-gradient(circle at 82% 70%, rgba(212, 163, 115, 0.2), transparent 25%),
+              var(--beige);
+}
+
+.phone-shell {
+  width: min(100%, 430px);
+  min-height: 100vh;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(61, 58, 54, 0.15);
+}
+
+.screen {
+  min-height: 100vh;
+  position: relative;
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+.padded {
+  padding: 24px 24px 36px;
+}
+
+.desktop-brand,
+.desktop-note {
+  position: fixed;
+  display: none;
+}
+
+.icon {
+  display: block;
+  flex: none;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -1.1px;
+  font-weight: 600;
+}
+
+h1 em,
+.logo-name em {
+  font-family: "Lora", serif;
+  color: var(--green);
+  font-weight: 500;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 20px;
+  letter-spacing: -0.4px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.stack {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Pantalla de carga inicial mientras app.js inicializa */
+.loading-splash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--cream);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+

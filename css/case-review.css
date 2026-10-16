@@ -1,0 +1,143 @@
+/**
+ * case-review.css - Pantalla de revisión de la alerta
+ */
+/* Pantalla de Revisión */
+.review-screen {
+  text-align: center;
+  padding-top: 45px;
+}
+
+.review-screen h1 { margin: 7px 0 12px; }
+.review-screen > .subtitle { margin-bottom: 21px; }
+
+.review-art {
+  height: 105px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.review-art > div {
+  position: relative;
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  border-radius: 25px;
+  display: grid;
+  place-items: center;
+  background: var(--beige);
+  color: var(--ochre);
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid var(--beige);
+  border-radius: 50%;
+}
+.o1 { width: 100px; height: 100px; }
+.o2 { width: 135px; height: 80px; }
+.review-art > i, .review-art > b {
+  position: absolute;
+  color: var(--green);
+  font-style: normal;
+}
+.review-art > i { left: 68px; top: 18px; }
+.review-art > b { right: 62px; bottom: 11px; color: var(--ochre); }
+
+.review-card {
+  background: var(--white);
+  border-radius: 21px;
+  padding: 17px;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.review-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.review-head b {
+  color: var(--ochre);
+  font-size: 8px;
+  background: rgba(212, 163, 115, 0.2);
+  padding: 6px 9px;
+  border-radius: 10px;
+}
+
+.review-head b i, .live i {
+  width: 6px;
+  height: 6px;
+  background: var(--ochre);
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.case-mini {
+  display: flex;
+  gap: 11px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-mini img {
+  width: 57px;
+  height: 57px;
+  object-fit: cover;
+  border-radius: 13px;
+}
+
+.case-mini > div { display: grid; gap: 2px; }
+.case-mini span, .case-mini small { color: var(--muted); font-size: 9px; }
+
+.timeline {
+  padding: 15px 3px 0;
+  display: grid;
+  gap: 13px;
+}
+
+.timeline > span {
+  min-height: 30px;
+  display: grid;
+  grid-template-columns: 23px 1fr auto;
+  position: relative;
+  font-size: 10px;
+}
+
+.timeline i {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--beige);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.timeline > span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  height: 19px;
+  width: 1px;
+  background: var(--beige);
+  left: 8px;
+  top: 19px;
+}
+
+.timeline small { color: var(--muted); }
+.timeline .done i {
+  color: var(--white);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.demo-action-box {
+  margin: 14px 0;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(212, 163, 115, 0.16);
+  border: 1px dashed var(--ochre);
+  text-align: center;
+}

@@ -1,0 +1,335 @@
+/**
+ * responsive.css - Adaptación responsiva para Tablet y Laptop
+ * Según docs/DISENO.md: Tablet (768px-1099px) y Laptop (>=1100px).
+ */
+
+/* =========================================================
+   1. MÓVIL (< 768px): Pantalla completa sin marco artificial
+   ========================================================= */
+@media (max-width: 767px) {
+  .app-shell {
+    background: var(--cream);
+  }
+  .phone-shell {
+    width: 100%;
+    min-height: 100vh;
+    box-shadow: none;
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+/* La barra lateral solo existe en escritorio (se muestra en la sección 3) */
+.desktop-sidebar { display: none; }
+
+/* =========================================================
+   2. TABLET (768px – 1099px): Centrado ~640px con barra inferior
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .app-shell {
+    padding: 24px 0;
+    background: radial-gradient(circle at 18% 30%, rgba(163, 177, 138, 0.28), transparent 28%),
+                radial-gradient(circle at 82% 70%, rgba(212, 163, 115, 0.2), transparent 25%),
+                var(--beige);
+  }
+
+  .phone-shell {
+    width: 640px;
+    max-width: 90vw;
+    border-radius: 28px;
+    box-shadow: 0 15px 45px rgba(61, 58, 54, 0.12);
+  }
+
+  .screen {
+    min-height: 860px;
+  }
+
+  .home-screen {
+    height: 860px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-card {
+    padding: 18px;
+  }
+}
+
+/* =========================================================
+   3. LAPTOP Y DESKTOP (≥ 1100px): Barra lateral y pantalla dividida
+   ========================================================= */
+@media (min-width: 1100px) {
+  .app-shell {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100vh;
+    padding: 0;
+    background: radial-gradient(circle at 10% 20%, rgba(163, 177, 138, 0.22), transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(212, 163, 115, 0.18), transparent 25%),
+                var(--beige);
+  }
+
+  /* Barra lateral de navegación en desktop */
+  .desktop-sidebar {
+    width: 260px;
+    background: var(--white);
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px;
+    z-index: 20;
+    flex-shrink: 0;
+  }
+
+  .desktop-sidebar .logo {
+    margin-bottom: 32px;
+  }
+
+  .desktop-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .desktop-sidebar-nav button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+    text-align: left;
+    width: 100%;
+  }
+
+  .desktop-sidebar-nav button.active,
+  .desktop-sidebar-nav button:hover {
+    background: rgba(163, 177, 138, 0.18);
+    color: var(--green);
+  }
+
+  .desktop-sidebar-nav button.sidebar-create {
+    margin-top: 16px;
+    background: var(--coral);
+    color: var(--white);
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(201, 108, 99, 0.3);
+  }
+
+  /* Ocultar barra inferior en desktop cuando hay sidebar */
+  .has-desktop-sidebar .nav {
+    display: none;
+  }
+
+  /* Estructura: barra lateral fija a la izquierda + contenido a la derecha */
+  .app-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  .app-layout .desktop-sidebar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex: none;
+    max-width: none;
+    min-height: 0;
+  }
+
+  .app-main { min-width: 0; }
+
+  /* Barras fijas (crear alerta, etc.) se alinean con la columna de contenido */
+  .create-footer { left: 260px; max-width: none; }
+
+  /* Contenedor central adaptable */
+  .phone-shell {
+    width: 100%;
+    max-width: none;
+    flex: 1;
+    min-height: 100vh;
+    box-shadow: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Pantallas divididas de Auth (Bienvenida, Login, Registro, Recuperar, Permisos) */
+  .auth-layout-desktop {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .auth-left-brand {
+    background: radial-gradient(circle at 30% 40%, rgba(163, 177, 138, 0.35), transparent 45%),
+                radial-gradient(circle at 70% 80%, rgba(212, 163, 115, 0.3), transparent 40%),
+                var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 80px;
+    border-right: 1px solid var(--line);
+  }
+
+  .auth-left-brand .logo {
+    transform: scale(1.1);
+    transform-origin: left center;
+  }
+
+  .auth-left-brand h2 {
+    margin-top: 40px;
+    font-family: "Lora", serif;
+    font-size: 38px;
+    line-height: 1.25;
+    color: var(--green);
+  }
+
+  .auth-left-brand p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  .auth-right-form {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 48px;
+    overflow-y: auto;
+  }
+
+  /* Pantalla de Inicio en Laptop: Mapa central y panel lateral derecho */
+  .home-screen.desktop-home {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    height: 100vh;
+    position: relative;
+  }
+
+  .home-screen.desktop-home .map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-screen.desktop-home .bottom-sheet {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    height: 100vh;
+    border-radius: 0;
+    border-left: 1px solid var(--line);
+    background: var(--cream);
+    padding: 24px;
+    box-shadow: none;
+    z-index: 10;
+  }
+
+  .home-screen.desktop-home > .button.alert {
+    display: none; /* Se crea desde la barra lateral */
+  }
+
+  .home-screen.desktop-home .locate {
+    bottom: 24px;
+    right: 400px;
+  }
+
+  /* Detalle de Caso en Laptop: 2 Columnas */
+  .case-detail.desktop-case {
+    display: grid;
+    grid-template-columns: 1fr 440px;
+    height: 100vh;
+  }
+
+  .case-detail.desktop-case .map {
+    position: relative;
+    bottom: auto;
+    height: 100vh;
+  }
+
+  .case-detail.desktop-case .detail-sheet {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    height: 100vh;
+    border-radius: 0;
+    border-left: 1px solid var(--line);
+    padding: 24px 28px 90px;
+  }
+
+  .case-detail.desktop-case .action-bar {
+    left: auto;
+    width: 440px;
+    border-left: 1px solid var(--line);
+  }
+
+  /* Listas, Formularios y Perfil centrados en ~720px */
+  .sub-scroll,
+  .create-content,
+  .profile-scroll,
+  .community-scroll,
+  .notification-list {
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .community-scroll {
+    display: grid;
+    gap: 16px;
+  }
+
+  .create-footer {
+    max-width: 760px;
+  }
+}
+
+/* =========================================================
+   4. PANTALLAS DE ACCESO EN PC/TABLET (≥ 768px)
+   Bienvenida, registro, login, recuperar y permisos se muestran
+   como una tarjeta centrada (máx. 460px) en vez de ocupar todo el ancho.
+   ========================================================= */
+@media (min-width: 768px) {
+  body:has(.screen.auth, .screen.welcome, .screen.permission-bg) {
+    background:
+      radial-gradient(circle at 15% 25%, rgba(163, 177, 138, 0.32), transparent 30%),
+      radial-gradient(circle at 85% 75%, rgba(212, 163, 115, 0.26), transparent 28%),
+      var(--beige);
+  }
+
+  .screen.auth,
+  .screen.welcome,
+  .screen.permission-bg {
+    width: 100%;
+    max-width: 460px;
+    min-height: 0;
+    margin: 0 auto;
+    border-radius: 28px;
+    box-shadow: 0 18px 50px rgba(61, 58, 54, 0.14);
+  }
+
+  body:has(.screen.auth, .screen.welcome, .screen.permission-bg) #app {
+    padding: 40px 16px;
+    min-height: 100vh;
+  }
+
+  .screen.auth { padding: 32px 36px 40px; }
+}
